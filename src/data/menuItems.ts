@@ -1,7 +1,7 @@
 export const menuItems =  [
   {
     name: 'About',
-    link: '/about'
+    link: '/#about'
   },
   {
     name: 'Services',

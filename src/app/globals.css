@@ -6,7 +6,8 @@
 html, body{
   font-family: "Poppins", sans-serif;
 }
-body {
-  @apply text-lg bg-gray-200
+
+p{
+  padding: 15px 0px;
 }
 

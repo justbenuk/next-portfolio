@@ -16,14 +16,12 @@ type RootChildren = {
 
 export default function RootLayout({ children }: RootChildren) {
   return (
-    <html lang="en" className="min-h-screen">
-      <body>
+    <html lang="en">
+      <body className="antialiased">
         <Provider>
-        <div className='flex flex-col items-center justify-between min-h-screen'>
         <Navigation />
-        <main className="px-6 lg:px-0">{children}</main>
+        <main>{children}</main>
         <Footer />
-        </div>
         </Provider>
       </body>
     </html>

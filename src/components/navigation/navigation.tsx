@@ -3,20 +3,20 @@ import React from "react";
 import Link from "next/link";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { menuItems } from "@/data/menuItems";
+import SocialLinks from './social-links';
 export default function Navigation() {
 
-  //TODO: Fix font sizes
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred isBordered shouldHideOnScroll maxWidth="xl" className="bg-gray-900 text-white">
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred isBordered shouldHideOnScroll maxWidth="full">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/">Just Ben</Link>
+          <Link href="/" className='text-lg font-bold'>Just Ben</Link>
         </NavbarBrand>
       </NavbarContent>
 
