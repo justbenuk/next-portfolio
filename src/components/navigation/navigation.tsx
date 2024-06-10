@@ -16,14 +16,14 @@ export default function Navigation() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/" className='text-lg font-bold'>Just Ben</Link>
+          <Link href="/" className='text-sm font-bold uppercase'>Just Ben</Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item, idx) => (
           <NavbarItem key={idx}>
-            <Link href={item.link}>
+            <Link href={item.link} className="text-sm font-bold uppercase">
               {item.name}
             </Link>
           </NavbarItem>
@@ -31,14 +31,14 @@ export default function Navigation() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Link href="/contact" className="border-2 border-yellow-500 rounded-xl px-6 py-1">Hire Me</Link>
+          <Link href="/contact" className="border-2 border-yellow-500 rounded-xl px-6 py-1 text-sm uppercase font-bold">Hire Me</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, idx) => (
           <NavbarMenuItem key={idx}>
             <Link
-              className="w-full text-center"
+              className="w-full text-center text-sm uppercase"
               href={item.link}
             >
               {item.name}
