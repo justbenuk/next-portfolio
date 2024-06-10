@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply text-lg bg-gray-200
+}
+
