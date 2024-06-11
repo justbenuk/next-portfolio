@@ -1,4 +1,4 @@
-export const menuItems =  [
+export const menuItems = [
   {
     name: 'About',
     link: '/about'
@@ -10,5 +10,9 @@ export const menuItems =  [
   {
     name: 'Projects',
     link: '/projects'
+  },
+  {
+    name: 'Blog',
+    link: '/blog'
   },
 ]
