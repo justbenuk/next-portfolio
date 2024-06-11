@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 import { menuItems } from "@/data/menuItems";
-import SocialLinks from './social-links';
+import NavLink from "./nav-link";
 export default function Navigation() {
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -23,15 +23,13 @@ export default function Navigation() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item, idx) => (
           <NavbarItem key={idx}>
-            <Link href={item.link} className="text-sm font-bold uppercase">
-              {item.name}
-            </Link>
+            <NavLink href={item.link}>{item.name}</NavLink>
           </NavbarItem>
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Link href="/contact" className="border-2 border-yellow-500 rounded-xl px-6 py-1 text-sm uppercase font-bold">Hire Me</Link>
+          <Link href="/contact" className="border-2 border-yellow-300 rounded-xl px-6 py-1 text-sm uppercase font-bold">Hire Me</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
