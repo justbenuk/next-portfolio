@@ -5,9 +5,18 @@
 
 html, body{
   font-family: "Poppins", sans-serif;
+  background-color:#232323;
+  color: #a7a7a7;
 }
 
 p{
-  padding: 15px 0px;
+  padding: 5px 0px;
 }
 
+.ytitle{
+  color: #f4d956;
+}
+
+.bg{
+  background-color: #f4d956;
+}

@@ -11,17 +11,19 @@ export const metadata: Metadata = {
 };
 
 type RootChildren = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export default function RootLayout({ children }: RootChildren) {
   return (
     <html lang="en">
       <body className="antialiased">
         <Provider>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+          <div className="min-h-screen flex flex-col justify-between">
+            <Navigation />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </Provider>
       </body>
     </html>

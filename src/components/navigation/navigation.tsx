@@ -1,22 +1,37 @@
-'use client'
+"use client";
 import React from "react";
 import Link from "next/link";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@nextui-org/react";
 import { menuItems } from "@/data/menuItems";
 import NavLink from "./nav-link";
 export default function Navigation() {
-
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred isBordered shouldHideOnScroll maxWidth="full">
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      isBlurred
+      shouldHideOnScroll
+      maxWidth="full"
+      className="bg-transparent"
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/" className='text-sm font-bold uppercase'>Just Ben</Link>
+          <Link href="/" className="text-sm font-bold uppercase">
+            Just Ben
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
@@ -29,7 +44,12 @@ export default function Navigation() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Link href="/contact" className="border-2 border-yellow-300 rounded-xl px-6 py-1 text-sm uppercase font-bold">Hire Me</Link>
+          <Link
+            href="/contact"
+            className="border-2 border-yellow-300 rounded-xl px-6 py-1 text-sm uppercase font-bold"
+          >
+            Hire Me
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
@@ -47,4 +67,3 @@ export default function Navigation() {
     </Navbar>
   );
 }
-
