@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -18,7 +18,7 @@ export default function AboutPage() {
           </p>
           <p>
             If you have an existing project or something new you would like me
-            to work on. Feel free to reach out to me.
+            to work on. Feel free to reach out to <Link href='hire-me' className="ytitle underline">me</Link>.
           </p>
         </div>
       </div>
