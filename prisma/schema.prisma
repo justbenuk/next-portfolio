@@ -8,8 +8,13 @@ datasource db {
 }
 
 model User {
-  id       String    @id
-  sessions Session[]
+  id        String    @id
+  email     String    @unique
+  firstname String    @default("none")
+  lastname  String    @default("none")
+  password  String
+  isAdmin   Boolean   @default(false)
+  sessions  Session[]
 }
 
 model Session {
