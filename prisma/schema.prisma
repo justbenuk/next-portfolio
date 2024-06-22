@@ -4,11 +4,11 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model User {
-  id        String    @id
+  id        String    @id @unique
   email     String    @unique
   firstname String    @default("none")
   lastname  String    @default("none")

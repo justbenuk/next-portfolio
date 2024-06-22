@@ -1,26 +1,34 @@
-import UserInfo from "@/components/dashboard/user-info/UserInfo"
-import { verifyAuth } from "@/lib/db/auth"
-import { redirect } from "next/navigation"
-import { getUser } from "@/actions/auth"
+import UserInfo from "@/components/dashboard/user-info/UserInfo";
+import { verifyAuth } from "@/lib/db/auth";
+import { redirect } from "next/navigation";
+import { getUser } from "@/actions/auth";
+import { logout } from "@/actions/auth";
 
 export default async function DashboardPage() {
-  const result = await verifyAuth()
+  const result = await verifyAuth();
 
-  if(!result){
-    return redirect('/auth/login')
+  if (!result.user) {
+    return redirect("/auth/login");
   }
 
-  const user = await getUser(result.userId)
+  const user = await getUser(result.user.id);
 
-  if(!user){
-    return redirect('auth/login')
+  if (!user) {
+    return redirect("auth/login");
   }
   return (
-    <>
-    <h1>Dashboard</h1>
-      <div>
-        <UserInfo user={user}/>
+    <div className="max-w-7xl mx-auto px-6 xl:px-0 mt-4">
+      <div className="border-gray-500 py-4 border-b flex flex-row justify-between items-center mb-10">
+        <h1>Dashboard</h1>
+        <div>
+          <form action={logout}>
+            <button>Logout</button>
+          </form>
+        </div>
       </div>
-    </>
-  )
+      <div>
+        <UserInfo user={user} />
+      </div>
+    </div>
+  );
 }
