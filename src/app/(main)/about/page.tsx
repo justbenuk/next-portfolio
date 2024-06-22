@@ -1,9 +1,15 @@
 import Link from "next/link";
+import Quote from "@/components/ui/quote";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'My Story So Far | Just Ben UK',
+  description: "I am a self taught developer building web applicatiuons for fun"
+}
 export default function AboutPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 xl:px-0 py-36">
-      <blockquote className="text-center text-4xl text-white"><span className="ytitle">&quot;</span>Learning to code is one of the most challenging things I am doing.... But I'm loving it<span className="ytitle">&quot;</span></blockquote>
+      <Quote text="Learning to code is one of the most challenging things I am doing.... But I'm loving it" />
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-10">
         <div>
           <div>
