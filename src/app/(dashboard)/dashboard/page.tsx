@@ -1,17 +1,10 @@
 import UserInfo from "@/components/dashboard/user-info/UserInfo";
-import { verifyAuth } from "@/lib/db/auth";
 import { redirect } from "next/navigation";
 import { getUser } from "@/actions/auth";
 import { logout } from "@/actions/auth";
 
 export default async function DashboardPage() {
-  const result = await verifyAuth();
-
-  if (!result.user) {
-    return redirect("/auth/login");
-  }
-
-  const user = await getUser(result.user.id);
+  const user = await getUser();
 
   if (!user) {
     return redirect("auth/login");

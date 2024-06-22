@@ -1,11 +1,11 @@
 'use server'
 import { db } from "@/lib/db/db"
-import { createAuthSession, destroySession } from "@/lib/db/auth"
+import { createAuthSession, destroySession, verifyAuth } from "@/lib/db/auth"
 import { generateId } from "lucia"
 import { hashUserPassword, verifyPassword } from "@/lib/db/hash"
 import { redirect } from "next/navigation"
 import { AuthProps } from '@/types'
-import { revalidatePath } from 'next/cache'
+import VerifyAuth from '@/components/verifyauth/verifyauth'
 
 
 export async function signup(prevState: any, formData: FormData): Promise<AuthProps> {
@@ -150,10 +150,16 @@ export async function logout() {
   redirect('/')
 }
 
-export async function getUser(id: string) {
+export async function getUser() {
+  const result = await verifyAuth()
+
+  if (!result.user) {
+    return null
+  }
+
   const user = await db.user.findUnique({
     where: {
-      id
+      id: result.user.id
     }
   })
   return user
