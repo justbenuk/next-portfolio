@@ -70,7 +70,7 @@ export async function signup(prevState: any, formData: FormData): Promise<AuthPr
 }
 
 //login the user
-export async function login(prevState: any, formData: FormData): Promise<AuthProps>{
+export async function login(prevState: any, formData: FormData): Promise<AuthProps> {
 
   //get the results from the form
   const email = formData.get('email') as string
@@ -81,7 +81,7 @@ export async function login(prevState: any, formData: FormData): Promise<AuthPro
 
   //check for an entered email
   if (!email) {
-   errors.email = 'No Email Address Provided'
+    errors.email = 'No Email Address Provided'
   }
 
   //check if there is a password
@@ -99,12 +99,12 @@ export async function login(prevState: any, formData: FormData): Promise<AuthPro
   //login 
   try {
     //check if the user exists
-  const existingUser = await db.user.findUnique({
-    where: {
-      email
-    }
-  })
-    
+    const existingUser = await db.user.findUnique({
+      where: {
+        email
+      }
+    })
+
     //check if there is a user
     if (!existingUser) {
       return {
@@ -116,15 +116,15 @@ export async function login(prevState: any, formData: FormData): Promise<AuthPro
 
     //check if valid password
     const isValidPassword = verifyPassword(existingUser.password, password)
-    
+
     if (!isValidPassword) {
-    return {
-      errors: {
-        password: 'Could Not Authenticate User'
+      return {
+        errors: {
+          password: 'Could Not Authenticate User'
+        }
       }
     }
-    }
-    
+
     //login and create a user session
     await createAuthSession(existingUser.id)
 
@@ -139,7 +139,7 @@ export async function login(prevState: any, formData: FormData): Promise<AuthPro
     }
   }
 
-   redirect('/dashboard')
+  redirect('/dashboard')
 
 }
 
@@ -159,7 +159,17 @@ export async function getUser() {
   const user = await db.user.findUnique({
     where: {
       id: result.user.id
+    },
+    select: {
+      email: true,
+      firstname: true,
+      lastname: true,
+      password: false,
+      isAdmin: false,
     }
   })
+
+  // const user = exclude(resultwpassword, ['password'])
+
   return user
 }
