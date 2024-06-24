@@ -7,7 +7,7 @@ html, body{
   font-family: "Poppins", sans-serif;
 }
 
-p{
+.article p{
   padding: 5px 0px;
 }
 
@@ -15,6 +15,3 @@ p{
   color: #f4d956;
 }
 
-.bg{
-  background-color: #f4d956;
-}

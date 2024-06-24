@@ -5,7 +5,6 @@ import { generateId } from "lucia"
 import { hashUserPassword, verifyPassword } from "@/lib/db/hash"
 import { redirect } from "next/navigation"
 import { AuthProps } from '@/types'
-import VerifyAuth from '@/components/verifyauth/verifyauth'
 
 
 export async function signup(prevState: any, formData: FormData): Promise<AuthProps> {
@@ -13,8 +12,8 @@ export async function signup(prevState: any, formData: FormData): Promise<AuthPr
   const id = generateId(15)
   const email = formData.get('email') as string
   const password = formData.get('password') as string
-  const firstname = formData.get('first-name') as string
-  const lastname = formData.get('last-name') as string
+  const firstname = formData.get('firstname') as string
+  const lastname = formData.get('lastname') as string
 
   let errors: AuthProps = {}
 

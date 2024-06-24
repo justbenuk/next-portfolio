@@ -1,30 +1,13 @@
-import type { Metadata } from "next";
+import { RootLayoutProps } from "@/types";
 import "../globals.css";
-import { ReactNode } from "react";
 import Navigation from "@/components/navigation/navigation";
-import Footer from "@/components/footer/footer";
-import Provider from "@/lib/provider";
 
-export const metadata: Metadata = {
-  title: "Just Ben UK | Freelance Developer",
-  description: "I build fullstack applications with NextJS",
-};
-
-type RootChildren = {
-  children: ReactNode;
-};
-
-export default function RootLayout({ children }: RootChildren) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#232323] text-[#a7a7a7]">
-        <Provider>
-          <div className="min-h-screen flex flex-col justify-between">
-            <Navigation />
-            <main>{children}</main>
-            <Footer />
-          </div>
-        </Provider>
+      <body className="bg-gray-800 min-h-screen">
+        <Navigation />
+        <main>{children}</main>
       </body>
     </html>
   );

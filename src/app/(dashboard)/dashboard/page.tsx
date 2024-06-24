@@ -9,17 +9,24 @@ export default async function DashboardPage() {
   if (!user) {
     return redirect("auth/login");
   }
+
   return (
     <div className="max-w-7xl mx-auto px-6 xl:px-0 mt-4">
-      <div className="border-gray-500 py-4 border-b flex flex-row justify-between items-center mb-10">
-        <h1>Dashboard</h1>
-        <div>
-          <form action={logout}>
-            <button>Logout</button>
-          </form>
+      <div className="rounded-xl shadow-xl bg-white">
+        <div className="flex flex-row justify-between items-center py-4 px-6">
+          <h1>Welcome Back <span className="font-bold">{user.firstname}</span></h1>
+          <div>
+            <form action={logout}>
+              <button>Log Out</button>
+            </form>
+          </div>
         </div>
       </div>
-      <div>
+      <div className="mt-4 bg-white rounded-xl py-4 px-6">
+        <h1 className="text-sm font-bold">Personel Details</h1>
+        <form>
+
+        </form>
         <UserInfo user={user} />
       </div>
     </div>

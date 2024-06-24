@@ -10,7 +10,7 @@ export default async function VerifyAuth({ children }: AuthProps) {
 
   //if not authenticated
   if (!isAuth.user) {
-    return redirect("/auth/signin");
+    return redirect("/login");
   }
 
   return <>{children}</>;
